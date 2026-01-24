@@ -47,6 +47,18 @@
         hash = "sha256-Oax3Aq+XHiMd823jtVUy43j4Sk7jVfD4cueDCLC0oSc=";
       } + "/db";
     });
+
+    # gnatprove requires the old gpr2
+    # Also build using Production to disable -Werror
+    gnatprove = ((gprev.gnatprove.overrideAttrs (
+    {
+      buildPhase = ''
+        Build=Production make
+      '';
+    })).override (
+    {
+      gpr2 = gprev.gpr2; 
+    }));
   });})
 
   # Use GNAT 15
