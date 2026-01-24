@@ -13,7 +13,7 @@ index 65d5ac4..687b114 100644
 -         "-l:libz.a",
 -         "-static-libstdc++",
 -         "-static-libgcc");
-+        ("-opcodes",
++        ("-lopcodes",
 +         "-lbfd",
 +         "-liberty",
 +         "-lsframe",

@@ -12,24 +12,26 @@
 , gnat_util
 , templates-parser
 , stable-sloc
+, llvm
 }:
 
 with gnatPackages;
 stdenv.mkDerivation rec {
   pname = "gnatcoverage";
-  version = "26.0.0-20250112";
+  version = "26.0.0-20260123";
   
   src = fetchGit {
     url = "https://github.com/AdaCore/gnatcoverage.git";
     ref = "master";
-    rev = "179943110f2bcb7ddfe7fc5bd11ddc00573825cc";
+    rev = "af2b6394255e4c7058c1b8c52e19f8801633a962";
   };
 
-  patches = [ ./gnatcov.gpr.patch ./instrument_ada_unit.patch ];
+  patches = [ ./gnatcov.gpr.patch ./instrument-ada_unit.adb.patch ];
   
   nativeBuildInputs = [
     gprbuild
     gnat
+    llvm
   ];
 
   buildInputs = [
@@ -44,6 +46,7 @@ stdenv.mkDerivation rec {
     gpr2
     templates-parser
     stable-sloc
+    llvm
   ];
 
   configurePhase = ''
