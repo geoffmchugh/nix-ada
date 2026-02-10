@@ -1,9 +1,10 @@
 { lib
 , fetchPypi
-, python3
+, python3Packages
 }:
 
-python3.pkgs.buildPythonPackage rec {
+with python3Packages;
+buildPythonPackage rec {
   pname = "types-gdb";
   version = "12.1.4.4";
 
@@ -11,4 +12,7 @@ python3.pkgs.buildPythonPackage rec {
     inherit pname version;
     hash = "sha256-BmXMe+RpNZ7pXLZEJUG7NQlDN6fPtQIPeBcZf7AJoC4=";
   };
+
+  pyproject = true;
+  build-system = [ setuptools ];
 } 
