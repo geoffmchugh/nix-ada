@@ -13,6 +13,6 @@
    in {
       packages.${system} = nix-ada;
 
-      devShells.${system}.default = import ./shell.nix { inherit nix-ada; };
+      devShells.${system}.default = import ./shell.nix { inherit pkgs; inherit nix-ada; };
    };
 }
