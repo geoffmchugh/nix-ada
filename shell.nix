@@ -8,7 +8,7 @@ pkgs.mkShell {
     nix-ada.alire-index 
     nix-ada.gtkada
     pkgs.gprbuild 
-    pkgs.gnatcoll-core 
+    pkgs.gnatPackages.gnatcoll-core 
     nix-ada.aws 
     nix-ada.gnat_util 
     nix-ada.gnat-gdb-scripts 
