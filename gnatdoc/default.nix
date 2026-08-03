@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
   buildInputs = [
     ada-markdown
     libgnatdoc
-    vss
+    vss-extra
   ];
 
   # Force the use of the systemwide libgnatdoc
